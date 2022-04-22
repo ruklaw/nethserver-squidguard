@@ -28,7 +28,8 @@
 
 use JSON;
 
-my $members = decode_json(`/usr/libexec/nethserver/list-group-members -s $ARGV[0]`);
+my $groupName = join(" ",@ARGV);
+my $members = decode_json(`/usr/libexec/nethserver/list-group-members -s $groupName`);
 foreach my $user (@$members) {
     print "$user\n";
 }
